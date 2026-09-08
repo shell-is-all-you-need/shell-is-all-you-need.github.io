@@ -1,5 +1,18 @@
 # Install
 
+## Homebrew
+
+```sh
+brew install shell-is-all-you-need/tap/shell-is-all-you-need
+```
+
+Or add the tap once and use the short name:
+
+```sh
+brew tap shell-is-all-you-need/tap
+brew install shell-is-all-you-need
+```
+
 ## Rust
 
 ```sh

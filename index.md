@@ -5,6 +5,9 @@ hero:
   name: shell-is-all-you-need
   text: Small process tools for MCP
   tagline: One dependency-free Rust binary. Explicit argv, schemas, filesystem boundaries, limits, and optional durable tasks.
+  image:
+    src: /logo.svg
+    alt: shell-is-all-you-need
   actions:
     - theme: brand
       text: Install
