@@ -1,5 +1,7 @@
 # Copy-ready examples
 
+For a real three-tool workflow with Reddit and image models, see [Reddit → Muse Image → DeepSeek](./media-workflow).
+
 These examples are starting points. Review executable availability and narrow filesystem roots for your environment before exposing them to a model.
 
 ## Read a workspace file

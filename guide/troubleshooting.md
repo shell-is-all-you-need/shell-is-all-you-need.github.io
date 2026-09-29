@@ -51,7 +51,7 @@ To force a clean download, set `SHELL_IS_ALL_YOU_NEED_CACHE_DIR` to a new direct
 
 ## `cargo install` reports an old compiler
 
-Version 0.1.0 requires Rust 1.98.1 or newer:
+Building from source requires Rust 1.98.1 or newer:
 
 ```sh
 rustup update stable

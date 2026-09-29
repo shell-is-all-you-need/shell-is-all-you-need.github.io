@@ -7,6 +7,7 @@ export default defineConfig({
   cleanUrls: true,
   lastUpdated: true,
   head: [
+    ["link", { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" }],
     ["meta", { name: "theme-color", content: "#080b0d" }],
     ["meta", { property: "og:type", content: "website" }],
     ["meta", { property: "og:title", content: "shell-is-all-you-need" }],
@@ -16,11 +17,12 @@ export default defineConfig({
     nav: [
       { text: "Get started", link: "/guide/getting-started" },
       { text: "Examples", link: "/examples/" },
+      { text: "Media workflow", link: "/examples/media-workflow" },
       { text: "CLI reference", link: "/reference/cli" },
       {
-        text: "v0.1.0",
+        text: "Packages",
         items: [
-          { text: "Release notes", link: "https://github.com/shell-is-all-you-need/mcp/releases/tag/v0.1.0" },
+          { text: "Releases", link: "https://github.com/shell-is-all-you-need/mcp/releases" },
           { text: "npm", link: "https://www.npmjs.com/package/shell-is-all-you-need" },
           { text: "PyPI", link: "https://pypi.org/project/shell-is-all-you-need/" },
           { text: "crates.io", link: "https://crates.io/crates/shell-is-all-you-need" },
@@ -47,7 +49,10 @@ export default defineConfig({
       },
       {
         text: "Examples",
-        items: [{ text: "Copy-ready tools", link: "/examples/" }],
+        items: [
+          { text: "Copy-ready tools", link: "/examples/" },
+          { text: "Reddit → image → compare", link: "/examples/media-workflow" },
+        ],
       },
       {
         text: "Reference",
