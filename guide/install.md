@@ -5,9 +5,9 @@ Choose a native installation or a launcher. The npm and Python launchers fetch t
 | Method | Requirement | Best for |
 | --- | --- | --- |
 | Homebrew | Homebrew | macOS and Linux workstations |
-| Cargo | Rust 1.98.1+ | Rust development environments |
+| Cargo | Rust 1.99.1+ | Rust development environments |
 | npm / npx | Node.js 24+ | JavaScript tooling and temporary runs |
-| pip / pipx / uvx | Python 3.9+ | Python tooling and isolated runs |
+| pip / pipx / uvx | Python 3.11+ | Python tooling and isolated runs |
 
 ## Homebrew
 
@@ -28,7 +28,7 @@ brew install shell-is-all-you-need
 cargo install shell-is-all-you-need
 ```
 
-Rust 1.98.1 or newer is required.
+Rust 1.99.1 or newer is required.
 
 ## npm
 
@@ -59,6 +59,8 @@ Standard pip is also supported:
 ```sh
 pip install shell-is-all-you-need
 ```
+
+Python 3.11 or newer is required.
 
 ## Run without installing
 

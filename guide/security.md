@@ -35,6 +35,12 @@ Paths are checked after canonicalization, including symlink resolution. A symlin
 
 If a path field has no explicit `--fs-root`, the current working directory is used as its root.
 
+Three rules keep path arguments unambiguous:
+
+- **Placeholder position.** A template containing a path-field placeholder must start with that placeholder or have a literal prefix ending in `/`. `{path}` and `.agents/skills/{skill_id}/SKILL.md` are accepted. `--out={path}` is rejected at startup; pass `--out` and `{path}` as separate argv items instead.
+- **No option injection.** A rendered path beginning with `-` is rejected at call time. Callers can pass `./-name` to refer to a file with a leading hyphen.
+- **Deny rules cannot be bypassed.** Denied paths are re-resolved on every call and matched case-insensitively. Case variants such as `.ENV` and symlinks created after startup are still denied.
+
 ::: warning Path policy scope
 Path policy protects rendered argv items containing marked fields. It does not sandbox every filesystem access the child process may perform independently.
 :::
@@ -51,7 +57,7 @@ Path policy protects rendered argv items containing marked fields. It does not s
 
 - A timeout terminates the child process tree.
 - The output limit applies separately to stdout and stderr.
-- Concurrency and rate limits are independent per tool.
+- Concurrency and rate limits are independent per tool. The concurrency limit is checked first, so calls rejected for concurrency do not consume rate budget.
 - Rate count and window must be configured together.
 
 ## Security checklist
@@ -62,4 +68,4 @@ Path policy protects rendered argv items containing marked fields. It does not s
 - Give write tools narrower roots than read tools.
 - Avoid passing secrets as arguments; process arguments may be observable.
 - Keep descriptions honest about privileged or destructive behavior.
-- Test paths containing spaces, symlinks, and leading hyphens.
+- Test paths containing spaces, symlinks, case variants of denied names, and leading hyphens.

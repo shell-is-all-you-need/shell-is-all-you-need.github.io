@@ -55,13 +55,13 @@ Properties must match command placeholders exactly:
 --exec cat -- '{path}'
 ```
 
-This fails at startup if:
+The server refuses to start if:
 
 - `{path}` is missing from `properties`
 - a property is never used by an argument template
 - a property is omitted from `required`
-- an undeclared field is sent at call time
-- a value has the wrong JSON scalar type
+
+A call is rejected if it sends an undeclared or missing field, or a value with the wrong JSON scalar type.
 
 ## Inferred schemas
 
@@ -87,7 +87,8 @@ Use explicit schemas for production tools so the model receives meaningful title
 ## Rendering values
 
 - Strings are inserted as their decoded JSON value.
-- Numbers and integers use their normalized JSON text.
+- Numbers keep their exact JSON text (`1.5e0` stays `1.5e0`).
+- Integers render as canonical decimal digits: `2.0` → `2`, `1e3` → `1000`, `-0` → `0`. Values with more than 128 digits are rejected.
 - Booleans render as `true` or `false`.
 - A rendered NUL byte is rejected.
 - Two consecutive opening or closing braces render one literal brace.

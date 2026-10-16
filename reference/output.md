@@ -5,7 +5,7 @@ Every completed process returns text content and a machine-readable `structuredC
 ```json
 {
   "exitCode": 0,
-  "stdout": "rustc 1.98.1\n",
+  "stdout": "rustc 1.99.1\n",
   "stderr": "",
   "timedOut": false,
   "stdoutTruncated": false,

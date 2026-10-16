@@ -6,18 +6,20 @@ export default defineConfig({
   description: "A dependency-free MCP server for fixed process invocations.",
   cleanUrls: true,
   lastUpdated: true,
+  sitemap: { hostname: "https://shell-is-all-you-need.github.io" },
   head: [
     ["link", { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" }],
     ["meta", { name: "theme-color", content: "#080b0d" }],
     ["meta", { property: "og:type", content: "website" }],
     ["meta", { property: "og:title", content: "shell-is-all-you-need" }],
+    ["meta", { property: "og:url", content: "https://shell-is-all-you-need.github.io/" }],
     ["meta", { property: "og:description", content: "Turn fixed process invocations into focused MCP tools." }],
   ],
   themeConfig: {
+    logo: "/logo.svg",
     nav: [
       { text: "Get started", link: "/guide/getting-started" },
       { text: "Examples", link: "/examples/" },
-      { text: "Media workflow", link: "/examples/media-workflow" },
       { text: "CLI reference", link: "/reference/cli" },
       {
         text: "Packages",
@@ -64,6 +66,7 @@ export default defineConfig({
       },
     ],
     search: { provider: "local" },
+    lastUpdated: { text: "Last updated" },
     outline: { level: [2, 3], label: "On this page" },
     editLink: {
       pattern: "https://github.com/shell-is-all-you-need/shell-is-all-you-need.github.io/edit/main/:path",

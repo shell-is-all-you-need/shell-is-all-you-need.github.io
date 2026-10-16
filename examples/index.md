@@ -1,6 +1,6 @@
 # Copy-ready examples
 
-For a real three-tool workflow with Reddit and image models, see [Reddit → Muse Image → DeepSeek](./media-workflow).
+For a real four-tool workflow with Reddit and image models, see [Reddit → Muse Image → DeepSeek](./media-workflow).
 
 These examples are starting points. Review executable availability and narrow filesystem roots for your environment before exposing them to a model.
 
@@ -18,6 +18,8 @@ shell-is-all-you-need \
   --exec cat -- '{path}'
 ```
 
+A path beginning with `-` is refused at call time, so `cat -- '{path}'` is safe from option injection; callers use `./-name` for such files.
+
 ## Search source code
 
 This example uses ripgrep and fixes the search root to `src`:
@@ -33,7 +35,7 @@ shell-is-all-you-need \
 
 ## Format one supported file
 
-The marked path is canonicalized before Prettier receives it:
+The marked path is checked against the allowed roots and deny list before Prettier runs:
 
 ```sh
 shell-is-all-you-need \

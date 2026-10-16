@@ -66,7 +66,7 @@ Limits, path policy, and task settings belong only to the tool block where they 
 
 ## Filesystem policy
 
-Use `--fs-path-field FIELD` for inputs that become paths. Add `--fs-root DIR` to allow roots and `--fs-deny-path PATH` to deny sensitive subtrees. Denies take precedence. See [Secure tools](./security) for complete examples.
+Use `--fs-path-field FIELD` for inputs that become paths. Add `--fs-root DIR` to allow roots and `--fs-deny-path PATH` to deny sensitive subtrees. Denies take precedence and are re-checked on every call. A path-field placeholder must begin its argument or follow a literal prefix ending in `/`; `--out={path}` is rejected. See [Secure tools](./security) for complete examples.
 
 ## Process limits
 
